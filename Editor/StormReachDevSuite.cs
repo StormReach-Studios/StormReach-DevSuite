@@ -24,14 +24,15 @@ namespace StormReachStudios.DevSuite
 
         static Texture2D LoadIcon(string fileName) { return AssetDatabase.LoadAssetAtPath<Texture2D>(ICON_PATH + fileName); }
 
-        static StormReachDevSuite()
+        [InitializeOnLoadMethod]
+        static void Init()
         {
             // LOAD ICONS
-            ICON_COMPILELOCK_FORCE = LoadIcon("T_Icon_CompileLock_Force.png");
-            ICON_COMPILELOCK_START = LoadIcon("T_Icon_CompileLock_Start.png");
-            ICON_COMPILELOCK_STOP = LoadIcon("T_Icon_CompileLock_Stop.png");
+            ICON_COMPILELOCK_FORCE = AssetDatabase.LoadAssetAtPath<Texture2D>(ICON_PATH + "T_Icon_CompileLock_Force.png");
+            ICON_COMPILELOCK_START = AssetDatabase.LoadAssetAtPath<Texture2D>(ICON_PATH + "T_Icon_CompileLock_Start.png");
+            ICON_COMPILELOCK_STOP = AssetDatabase.LoadAssetAtPath<Texture2D>(ICON_PATH + "T_Icon_CompileLock_Stop.png");
             ICON_COMPILELOCK = IS_TOGGLE_LOCK ? ICON_COMPILELOCK_START : ICON_COMPILELOCK_STOP;
-            
+        
             // ADD BUTTONS
             ToolbarExtender.RightToolbarGUI.Add(OnToolbarGUI);
         }
@@ -55,3 +56,4 @@ namespace StormReachStudios.DevSuite
     }
 
 }
+
