@@ -2,7 +2,7 @@
 
 using UnityEngine;
 using UnityEditor;
-using UnityToolbarExtender;
+using StormReachStudios.DevSuite.UnityToolbarExtender;
 
 namespace StormReachStudios.DevSuite
 {

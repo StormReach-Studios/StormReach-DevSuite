@@ -1,6 +1,6 @@
 {
   "name": "com.stormreachstudios.stormreachdevsuite",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "displayName": "StormReach DevSuite",
   "description": "Unity tool designed to make game development easier and faster",
   "unity": "2025.0",
