@@ -22,14 +22,16 @@ namespace StormReachStudios.DevSuite
             set => EditorPrefs.SetBool("StormReachDevSuite_ToggleLock", value);
         }
 
+        static Texture2D LoadIcon(string fileName) { return AssetDatabase.LoadAssetAtPath<Texture2D>(ICON_PATH + fileName); }
+
         static StormReachDevSuite()
         {
             // LOAD ICONS
-            ICON_COMPILELOCK_FORCE = EditorGUIUtility.IconContent(ICON_PATH + "T_Icon_CompileLock_Force.png").image as Texture2D;
-            ICON_COMPILELOCK_START = EditorGUIUtility.IconContent(ICON_PATH + "T_Icon_CompileLock_Start.png").image as Texture2D;
-            ICON_COMPILELOCK_STOP = EditorGUIUtility.IconContent(ICON_PATH + "T_Icon_CompileLock_Stop.png").image as Texture2D;
+            ICON_COMPILELOCK_FORCE = LoadIcon("T_Icon_CompileLock_Force.png");
+            ICON_COMPILELOCK_START = LoadIcon("T_Icon_CompileLock_Start.png");
+            ICON_COMPILELOCK_STOP = LoadIcon("T_Icon_CompileLock_Stop.png");
             ICON_COMPILELOCK = IS_TOGGLE_LOCK ? ICON_COMPILELOCK_START : ICON_COMPILELOCK_STOP;
-
+            
             // ADD BUTTONS
             ToolbarExtender.RightToolbarGUI.Add(OnToolbarGUI);
         }
@@ -51,4 +53,5 @@ namespace StormReachStudios.DevSuite
             }
         }
     }
+
 }
