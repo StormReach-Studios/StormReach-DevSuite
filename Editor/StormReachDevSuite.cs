@@ -24,7 +24,12 @@ namespace StormReachStudios.DevSuite
 
         static Texture2D LoadIcon(string fileName) { return AssetDatabase.LoadAssetAtPath<Texture2D>(ICON_PATH + fileName); }
 
-        [InitializeOnLoadMethod]
+        static StormReachDevSuite()
+        {
+            // DELAY INIT UNTIL ASSETS ARE FULLY IMPORTED
+            EditorApplication.delayCall += Init;
+        }
+        
         static void Init()
         {
             // LOAD ICONS
@@ -56,4 +61,5 @@ namespace StormReachStudios.DevSuite
     }
 
 }
+
 
